@@ -65,8 +65,7 @@ Contributions to Surf Web are welcome! If you have any suggestions, bug reports,
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
-
+- SurfTimer and all of its wonderful contributors / predecesors (https://github.com/surftimer/SurfTimer)
 - The Flask framework: [Flask](https://flask.palletsprojects.com/)
-- The Socket.IO library: [Flask-SocketIO](https://flask-socketio.readthedocs.io/)
 
 Feel free to reach out if you have any questions or need further assistance. Happy surfing!
