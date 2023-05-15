@@ -1,7 +1,5 @@
 # Surf Web for CS:GO Surf Servers
 
-![Logo](logo.png)
-
 Surf Web is a Python Flask application developed by Nick "Chocolate Lasagna" for CS:GO surf server management. It serves as a web interface that provides valuable information about the server status, player statistics, and more.
 
 ## Features
