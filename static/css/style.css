@@ -1,0 +1,409 @@
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title{
+    font-size: 72px;
+    font-weight: bold;
+    color: #eee;
+    margin: 0;
+    text-shadow: 4px 4px 2px black;
+}
+
+.description {
+    font-size: 18px;
+    margin-top: 0;
+    color: #00b0ff;
+}
+
+/* Navbar styles */
+
+.nav {
+    background-color: #101010;
+    height: 60px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.nav li {
+    margin: 0 20px;
+}
+
+.nav li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.nav li a i {
+    margin-right: 10px;
+}
+
+.nav li a:hover {
+    background-color: #3f3e3e;
+    /*text-decoration: solid underline 2px;
+    text-underline-offset: 4px;*/
+}
+
+.nav li.active a {
+    background-color: #3f3e3e;
+    /*text-decoration: solid underline 2px;
+    text-underline-offset: 4px;*/
+}
+
+.subnav {
+    height: 40px;
+}
+
+.subnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.subnav li {
+    margin: 0 20px;
+}
+
+.subnav li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.subnav li a:hover {
+    text-decoration-line: underline;
+}
+
+.subnav li.active a {
+    background-color: #3f3e3e;
+}
+
+
+/* Server info styles */
+
+.sectionhead {
+    text-shadow: 2px 2px 2px black;
+
+}
+
+.sectionhead h2 {
+    margin-bottom: 0px;
+}
+
+.server-info-box {
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #101010;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.server-info {
+    margin: 0 auto;
+}
+
+.server-info h2 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    color: #00b0ff;
+}
+
+
+.server-info .join-link {
+    margin-top: 10px;
+}
+
+.server-info a {
+    color: #fff;
+    background-color: #222;
+    padding: 3px 6px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+a.connect {
+    background-color: #007bff;
+}
+
+.server-info a:hover {
+    text-decoration: underline;
+}
+
+
+/*WAVES*/
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(ellipse at center, #252525 0%, #252525 35%, #121212 100%);
+    overflow: hidden;
+}
+
+.ocean {
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    background: #015871;
+}
+
+.wave {
+    background: url(../img/wave.svg) repeat-x;
+    position: absolute;
+    top: -198px;
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+    top: -175px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+}
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: -1600px;
+    }
+}
+
+@keyframes swell {
+
+    0%,
+    100% {
+        transform: translate3d(0, -25px, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 5px, 0);
+    }
+}
+
+
+/* status light */
+.status-indicator {
+    position: absolute;
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Green status indicator */
+.status-indicator.green {
+    background-color: #04e204;
+}
+
+/* Red status indicator */
+.status-indicator.red {
+    background-color: red;
+}
+
+
+
+/* STATS CSS*/
+.table-container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #000;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #000;
+    color: #fff;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #000;
+    color: #fff;
+}
+
+td {
+    background-color: #101010;
+}
+
+tr:nth-child(even) td {
+    background-color: #1f1f1f;
+}
+
+tr:hover td {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.table-wrapper {
+    max-height: 600px;
+    /* set a fixed height */
+    overflow: auto;
+    /* enable scrolling */
+}
+
+tr td a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+
+/* scrollbar */
+
+html {
+    scrollbar-face-color: #646464;
+    scrollbar-base-color: #646464;
+    scrollbar-3dlight-color: #646464;
+    scrollbar-highlight-color: #646464;
+    scrollbar-track-color: #000;
+    scrollbar-arrow-color: #000;
+    scrollbar-shadow-color: #646464;
+    scrollbar-darkshadow-color: #646464;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #666;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #646464;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #666;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #646464;
+}
+
+::-webkit-resizer {
+    background-color: #666;
+}
+
+/* stat box */
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-box {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    background: #101010;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    margin: 20px;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+
+/* PLAYER*/
+
+.player-info {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    background: #101010;
+    width: 100%;
+    padding: 10px;
+    margin: 20px;
+    overflow: scroll;
+}
+
+.player-info a {
+    color: inherit;
+    /* blue colors for links too /
+    text-decoration: inherit; / no underline */
+}
+
+.player-info p {
+    margin: 5px 0;
+}
+
+.player-info strong {
+    margin-right: 5px;
+}
+
+.player-info img {
+    flex-basis: 50%;
+    max-width: 100%;
+    margin-right: 20px;
+}

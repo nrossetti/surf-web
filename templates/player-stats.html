@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<div class="container">
+    <a href="/">
+        <h1 class="title">SURF</h1>
+    </a>
+    <h2 class="description">Counter-Strike Surf Community </h2>
+    <nav class="nav">
+        <ul>
+            <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
+            <li class="active"><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+            <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
+        </ul>
+    </nav>
+    <nav class="subnav">
+        <ul>
+            <li><a href="{{ url_for('top') }}">Top</a></li>
+            <li><a href="{{ url_for('latest') }}">Latest</a></li>
+            <li><a href="{{ url_for('players') }}">Players</a></li>
+            <li><a href="{{ url_for('maps') }}">Maps</a></li>
+        </ul>
+    </nav>
+    <h1>{{ data.name }}</h1>
+    {% if data %}
+    <div class="player-info">
+        <img src="{{ profile_picture_url }}" alt="Profile Picture">
+        <div>
+            <p>
+            <h2><a href="https://steamcommunity.com/profiles/{{ data.steamid64 }}">{{ data.name }}</a></h2>
+            </p>
+            <p><strong>country:</strong> {{ data.country }}</p>
+            <!--<p><strong>countryCode:</strong> {{ data.countryCode }}</p>-->
+            <!--<p><strong>continentCode:</strong> {{ data.continentCode }}</p>-->
+            <p><strong>points:</strong> {{ data.points }}</p>
+            <p><strong>wrpoints:</strong> {{ data.wrpoints }}</p>
+            <p><strong>wrbpoints:</strong> {{ data.wrbpoints }}</p>
+            <!--<p><strong>wrcppoints:</strong> {{ data.wrcppoints }}</p>-->
+            <p><strong>top10points:</strong> {{ data.top10points }}</p>
+            <!--<p><strong>groupspoints:</strong> {{ data.groupspoints }}</p>-->
+            <p><strong>mappoints:</strong> {{ data.mappoints }}</p>
+            <p><strong>bonuspoints:</strong> {{ data.bonuspoints }}</p>
+            <p><strong>finishedmaps:</strong> {{ data.finishedmaps }}</p>
+            <!--<p><strong>finishedmapspro:</strong> {{ data.finishedmapspro }}</p>-->
+            <!--<p><strong>finishedbonuses:</strong> {{ data.finishedbonuses }}</p>-->
+            <!--<p><strong>finishedstages:</strong> {{ data.finishedstages }}</p>-->
+            <p><strong>wrs:</strong> {{ data.wrs }}</p>
+            <p><strong>wrbs:</strong> {{ data.wrbs }}</p>
+            <!--<p><strong>wrcps:</strong> {{ data.wrcps }}</p>-->
+            <p><strong>top10s:</strong> {{ data.top10s }}</p>
+            <!--<p><strong>groups:</strong> {{ data.groups }}</p>-->
+            <p><strong>lastseen:</strong> {{ data.lastseen }}</p>
+            <p><strong>joined:</strong> {{ data.joined }}</p>
+            <!--<p><strong>timealive:</strong> {{ data.timealive }}</p>-->
+            <!--<p><strong>timespec:</strong> {{ data.timespec }}</p>-->
+            <!--<p><strong>connections:</strong> {{ data.connections }}</p>-->
+            <!--<p><strong>readchangelog:</strong> {{ data.readchangelog }}</p>-->
+            <!--<p><strong>style:</strong> {{ data.style }}</p>-->
+        </div>
+    </div>
+    {% else %}
+    <p>No player information found.</p>
+    {% endif %}
+
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>

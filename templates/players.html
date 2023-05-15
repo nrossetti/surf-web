@@ -1,0 +1,71 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<div class="container">
+  <a href="/">
+    <h1 class="title">SURF</h1>
+  </a>
+  <h2 class="description">Counter-Strike Surf Community </h2>
+  <nav class="nav">
+    <ul>
+      <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
+      <li class="active"><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+      <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
+    </ul>
+  </nav>
+  <nav class="subnav">
+    <ul>
+      <li ><a href="{{ url_for('top') }}">Top</a></li>
+      <li><a href="{{ url_for('latest') }}">Latest</a></li>
+      <li class="active"><a href="{{ url_for('players') }}">Players</a></li>
+      <li><a href="{{ url_for('maps') }}">Maps</a></li>
+  </ul>
+  </nav>
+  <h1>Player Data</h1>
+  <div class="total-container">
+    <div class="total-box">
+      <h2>TOTAL PLAYERS</h2>
+      <p>420</p>
+    </div>
+    <div class="total-box">
+      <h2>TIME SURFED</h2>
+      <p>69 days</p>
+    </div>
+    <div class="total-box">
+      <h2>MAP COMPLETES</h2>
+      <p> </p>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Points</th>
+          <th>Finished Maps</th>
+          <th>Records</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td><a href="{{ url_for('player_stats', steamid64=row.steamid64) }}">{{ row.name }}</a></td>
+          <td>{{ row.country }}</td>
+          <td>{{ row.points }}</td>
+          <td>{{ row.finishedmaps }}/105</td>
+          <td>{{ row.wrs }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="ocean">
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>

@@ -1,0 +1,50 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<div class="container">
+    <a href="/">
+        <h1 class="title">SURF</h1>
+    </a>
+    <h2 class="description">Counter-Strike Surf Community </h2>
+    <nav class="nav">
+        <ul>
+            <li class="active"><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
+            <li><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+            <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
+        </ul>
+    </nav>
+
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="sectionhead">
+        <h2>
+            Game Servers
+        </h2>
+    </div>
+    <div class="server-info-box">
+        <div class="server-info">
+            <div class="status-indicator green"></div>
+            <h2>{{server_info.server_name}}</h2>
+            <p><strong>Map:</strong> {{ server_info.map_name }} | <strong>Players:</strong> {{ server_info.player_count
+                }}</p>
+            <p><strong>IP Address:</strong> <a href="steam://connect/{{ server_info.ip_address }}">{{
+                    server_info.ip_address }}</a><a href="steam://connect/{{ server_info.ip_address }}"
+                    class="connect">Join</a></p>
+        </div>
+    </div>
+
+    <div class="server-info-box">
+        <div class="server-info">
+            <div class="status-indicator red"></div>
+            <h2>Surf MOTD</h2>
+            <p><strong>*Coming Soon*</strong></p>
+            <p>Map of the day. One map every day. Compete to score top times and earn MOTD points.</p>
+        </div>
+    </div>
+</div>

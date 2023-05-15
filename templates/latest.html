@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<div class="container">
+    <a href="/">
+        <h1 class="title">SURF</h1>
+    </a>
+    <h2 class="description">Counter-Strike Surf Community </h2>
+    <nav class="nav">
+        <ul>
+            <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
+            <li class="active"><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+            <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
+        </ul>
+    </nav>
+    <nav class="subnav">
+        <ul>
+            <li><a href="{{ url_for('top') }}">Top</a></li>
+            <li  class="active"><a href="{{ url_for('latest') }}">Latest</a></li>
+            <li><a href="{{ url_for('players') }}">Players</a></li>
+            <li><a href="{{ url_for('maps') }}">Maps</a></li>
+        </ul>
+    </nav>
+    <h1>Recent Records</h1>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>runtime</th>
+                    <th>map</th>
+                    <th>date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td><a href="{{ url_for('players')}}">{{ row.name }}</a></td>
+                    <td>{{ row.runtime }}</td>
+                    <td>{{ row.map }}</td>
+                    <td>{{ row.date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
