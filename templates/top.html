@@ -2,6 +2,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <div class="container">
@@ -26,17 +27,23 @@
     </nav>
     <h1>Player Data</h1>
     <div class="total-container">
-        <div class="total-box">
-            <h2>TOTAL PLAYERS</h2>
-            <p>420</p>
+        <div class="pos-box border-gold egn">
+            <a href="{{ url_for('player_stats', steamid64=data[0].steamid64) }}"><h1>#1 {{ data[0].name }}</h1></a>
+            <p><strong>{{data[0].points}}</strong> points</p>
+            <p><strong>{{data[0].finishedmaps}}</strong> finished maps</p>
+            <p><strong>{{data[0].wrs}}</strong> records</p>
         </div>
-        <div class="total-box">
-            <h2>TIME SURFED</h2>
-            <p>69 days</p>
+        <div class="pos-box border-silver">
+            <a href="{{ url_for('player_stats', steamid64=data[1].steamid64) }}"><h1>#2 {{ data[1].name }}</h1></a>
+            <p><strong>{{data[1].points}}</strong> points</p>
+            <p><strong>{{data[1].finishedmaps}}</strong> finished maps</p>
+            <p><strong>{{data[1].wrs}}</strong> records</p>
         </div>
-        <div class="total-box">
-            <h2>MAP COMPLETES</h2>
-            <p> </p>
+        <div class="pos-box border-bronze">
+            <a href="{{ url_for('player_stats', steamid64=data[2].steamid64) }}"><h1>#3 {{ data[2].name }}</h1></a>
+            <p><strong>{{data[2].points}}</strong> points</p>
+            <p><strong>{{data[2].finishedmaps}}</strong> finished maps</p>
+            <p><strong>{{data[2].wrs}}</strong> records</p>
         </div>
     </div>
     <div class="table-wrapper">

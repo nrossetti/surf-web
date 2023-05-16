@@ -95,7 +95,7 @@ def get_latest():
 def get_maps():
     # Create a SELECT statement to query all rows from the ck_playerrank table
     stmt = select(MapTier.__table__).\
-    order_by(MapTier.tier.asc())
+    order_by(MapTier.tier.asc(), MapTier.mapname)
 
     # Execute the SELECT statement and fetch all rows
     with engine.connect() as conn:

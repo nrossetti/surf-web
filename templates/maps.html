@@ -2,6 +2,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <div class="container">
@@ -25,19 +26,35 @@
   </ul>
   </nav>
   <h1>Player Data</h1>
+  <div class="total-container">
+    <div class="total-box">
+      <h2>TOTAL MAPS</h2>
+      <p>120</p>
+    </div>
+    <div class="total-box">
+      <h2>Most Completes</h2>
+      <p>surf_mesa</p>
+    </div>
+    <div class="total-box">
+      <h2>Least Completes</h2>
+      <p>surf_rainbow</p>
+    </div>
+  </div>
   <div class="table-wrapper">
     <table>
       <thead>
         <tr>
-          <th>tier</th>
+          <th>#</th>
           <th>mapname</th>
+          <th>tier</th>
         </tr>
       </thead>
       <tbody>
         {% for row in data %}
         <tr>
-          <td>{{row.tier}}</a></td>
+          <td>{{ loop.index }}</td>
           <td>{{ row.mapname }}</td>
+          <td>{{row.tier}}</td>
         </tr>
         {% endfor %}
       </tbody>

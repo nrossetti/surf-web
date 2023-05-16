@@ -51,4 +51,4 @@ def maps():
     return render_template('maps.html', data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

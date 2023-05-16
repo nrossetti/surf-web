@@ -13,6 +13,10 @@ a:hover {
     cursor:pointer;  
 }
 
+h1{
+    margin-bottom: 0px;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -100,10 +104,9 @@ a:hover {
 
 .subnav li a {
     display: block;
-    color: #fff;
+    color: #00b0ff;
     text-decoration: none;
     font-size: 16px;
-    font-weight: bold;
     padding: 10px 15px;
 }
 
@@ -159,7 +162,7 @@ a:hover {
 }
 
 a.connect {
-    background-color: #007bff;
+    background-color: #00b0ff;
 }
 
 .server-info a:hover {
@@ -372,7 +375,7 @@ html {
     margin: 20px;
 }
 
-h1 {
+.total-box h1 {
     margin-bottom: 0px;
 }
 
@@ -407,3 +410,135 @@ h1 {
     max-width: 100%;
     margin-right: 20px;
 }
+
+/* TOP PAGE*/ 
+
+.pos-box {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    background: #101010;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    margin: 20px;
+}
+
+.latest-box {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    background: #101010;
+    height: 100px;
+    width: 100%;
+    padding: 0px;
+    margin: 20px;
+    height: auto;
+
+}
+
+.pos-box a{
+    color: inherit;
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.pos-box {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+    background: #101010;
+    height: 100px;
+    width: 100%;
+    padding: 0px;
+    margin: 20px;
+    border: 20px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    height: auto;
+
+}
+
+.pos-box a{
+    color: inherit;
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.pos-box a h1{
+    margin:5px;
+}
+
+.pos-box p{
+    margin:5px;
+}
+
+  .border-gold {
+
+    background: linear-gradient(to left, rgb(139, 111, 26, 1), rgb(214, 175, 54, 1));
+    border-image-source: linear-gradient(to left, rgb(100, 80, 19), rgb(170, 138, 43));
+}
+
+  .border-silver {
+    background: linear-gradient(to left, rgb(136, 136, 143, 1), rgb(215, 215, 215, 1));
+    border-image-source: linear-gradient(to left, rgb(136, 136, 143, .8), rgb(215, 215, 215, .8));
+  }
+
+  .border-bronze {
+    background: linear-gradient(to left, rgb(94, 61, 34, 1), rgb(167, 112, 68, 1));
+    border-image-source: linear-gradient(to left, rgb(94, 61, 34, .8), rgb(167, 112, 68, .8));
+  }
+  .border-gold:hover{
+    animation: pulse-gold 1s;
+
+}
+.border-silver:hover{
+    animation: pulse-silver 1s;
+
+}
+.border-bronze:hover{
+    animation: pulse-bronze 1s;
+
+}
+  @keyframes pulse-gold {
+	0% {
+		box-shadow: 0 0 10px rgba(218, 184, 36, 0);
+	}
+    33% {
+		box-shadow: 0 0 20px rgba(218, 184, 36, .5);
+    }
+	100% {
+		box-shadow: 0 0 20px rgba(218, 184, 36, .25);
+	}
+}
+
+@keyframes pulse-silver {
+	0% {
+		box-shadow: 0 0 10px rgba(215, 215, 215, 0);
+	}
+    33% {
+		box-shadow: 0 0 20px rgba(215, 215, 215, .5);
+    }
+	100% {
+		box-shadow: 0 0 20px rgba(215, 215, 215, .25);
+	}
+}
+
+@keyframes pulse-bronze {
+	0% {
+		box-shadow: 0 0 10px rgba(167, 112, 68, 0);
+	}
+    33% {
+		box-shadow: 0 0 20px rgba(167, 112, 68, .5);
+    }
+	100% {
+		box-shadow: 0 0 20px rgba(167, 112, 68, .25);
+	}
+}
+.latest-box p a {
+    color: #48d335;
+    text-decoration:none; 
+    cursor:pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* latest bot */
+.latest-box strong{
+color: #48d335;
+}
+
