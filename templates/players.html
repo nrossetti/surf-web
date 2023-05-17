@@ -41,20 +41,45 @@
     </div>
   </div>
   <div class="table-wrapper">
-    <table>
+    <table id="sortable-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Points</th>
-          <th>Finished Maps</th>
-          <th>Records</th>
+          <th>
+            Name
+            <span class="sort-icon" onclick="sortTable(0)">
+              <i class="fas fa-sort"></i>
+            </span>
+          </th>
+          <th>
+            Country
+            <span class="sort-icon" onclick="sortTable(1)">
+              <i class="fas fa-sort"></i>
+            </span>
+          </th>
+          <th>
+            Points
+            <span class="sort-icon" onclick="sortTable(2)">
+              <i class="fas fa-sort"></i>
+            </span>
+          </th>
+          <th>
+            Finished Maps
+            <span class="sort-icon" onclick="sortTable(3)">
+              <i class="fas fa-sort"></i>
+            </span>
+          </th>
+          <th>
+            Records
+            <span class="sort-icon" onclick="sortTable(4)">
+              <i class="fas fa-sort"></i>
+            </span>
+          </th>
         </tr>
       </thead>
       <tbody>
         {% for row in data %}
         <tr>
-          <td><a href="{{ url_for('player_stats', steamid64=row.steamid64) }}">{{ row.name }}</a></td>
+          <td>{{ row.name }}</td>
           <td>{{ row.country }}</td>
           <td>{{ row.points }}</td>
           <td>{{ row.finishedmaps }}/105</td>
@@ -64,6 +89,41 @@
       </tbody>
     </table>
   </div>
+  
+  <script>
+    function sortTable(columnIndex) {
+      const table = document.getElementById("sortable-table");
+      const tbody = table.querySelector("tbody");
+      const rows = Array.from(tbody.getElementsByTagName("tr"));
+  
+      const ascending = table.classList.toggle("ascend");
+      
+      rows.sort((rowA, rowB) => {
+        const cellA = rowA.getElementsByTagName("td")[columnIndex].innerText;
+        const cellB = rowB.getElementsByTagName("td")[columnIndex].innerText;
+  
+        if (columnIndex === 2 || columnIndex === 3 || columnIndex === 4) {
+          return (parseInt(cellA) - parseInt(cellB)) * (ascending ? 1 : -1);
+        } else {
+          return cellA.localeCompare(cellB) * (ascending ? 1 : -1);
+        }
+      });
+  
+      for (let row of rows) {
+        tbody.appendChild(row);
+      }
+  
+      // Reset sort icons
+      const sortIcons = table.getElementsByClassName("sort-icon");
+      for (let icon of sortIcons) {
+        icon.innerHTML = '<i class="fas fa-sort"></i>';
+      }
+  
+      // Update sort icon for the clicked column
+      const clickedIcon = table.getElementsByTagName("th")[columnIndex].getElementsByClassName("sort-icon")[0];
+      clickedIcon.innerHTML = ascending ? '<i class="fas fa-sort-up"></i>' : '<i class="fas fa-sort-down"></i>';
+    }
+  </script>
 </div>
 
 <div class="ocean">
