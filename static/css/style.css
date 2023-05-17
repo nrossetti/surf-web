@@ -378,7 +378,12 @@ html {
 .total-box h1 {
     margin-bottom: 0px;
 }
+.total-box a {
+    color:inherit;
+    text-decoration:none; 
+    cursor:pointer;  
 
+}
 
 /* PLAYER*/
 
@@ -388,7 +393,7 @@ html {
     width: 100%;
     padding: 10px;
     margin: 20px;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .player-info a {
@@ -409,6 +414,16 @@ html {
     flex-basis: 50%;
     max-width: 100%;
     margin-right: 20px;
+}
+
+.splitleft{
+    width: 40%;
+    float:left;
+}
+
+.splitright{
+    width: 40%;
+    float:right;
 }
 
 /* TOP PAGE*/ 
@@ -540,5 +555,15 @@ html {
 /* latest bot */
 .latest-box strong{
 color: #48d335;
+}
+
+
+/*map*/
+.negdiff {
+    color: #d33535;
+}
+
+.posdiff {
+    color: #48d335;
 }
 

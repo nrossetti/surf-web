@@ -26,7 +26,10 @@ def servers():
 @app.route('/players')
 def players():
     data = get_players()
-    return render_template('players.html', data=data)
+    mostpoints = get_mostpoints()
+    newestplayer = get_newestplayer()
+    numplayers = len(data)
+    return render_template('players.html', data=data, mostpoints=mostpoints, newestplayer=newestplayer, numplayers=numplayers)
 
 @app.route('/top')
 def top():
@@ -36,9 +39,11 @@ def top():
 @app.route('/profile/<steamid64>')
 def player_stats(steamid64):
     data = get_player(steamid64) 
+    steamid=get_steamid(steamid64)
+    data2 = get_playerrecs(steamid)
     steam_avatar = profile_url(steamid64)
     # render the player.html template with the player's data and profile picture URL
-    return render_template('player-stats.html', data=data, profile_picture_url=steam_avatar)
+    return render_template('player-stats.html', data=data, data2=data2, profile_picture_url=steam_avatar)
 
 @app.route('/latest')
 def latest():
@@ -48,7 +53,17 @@ def latest():
 @app.route('/maps')
 def maps():
     data = get_maps()
-    return render_template('maps.html', data=data)
+    mostcompletes = get_mostcompletes()
+    incomplete = get_incomplete()
+    return render_template('maps.html', data=data, totalmaps=len(data), mostcompletes=mostcompletes, incomplete=incomplete)
+
+@app.route('/map/<mapname>')
+def map(mapname):
+    data = get_maprec(mapname) 
+    data2 = get_maptier(mapname)
+    # render the player.html template with the player's data and profile picture URL
+    return render_template('map.html', data=data, data2=data2, recordCount=len(data))
+
 
 if __name__ == '__main__':
     app.run()

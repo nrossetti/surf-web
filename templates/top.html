@@ -13,7 +13,7 @@
     <nav class="nav">
         <ul>
             <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
-            <li class="active"><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+            <li class="active"><a href="{{ url_for('top') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
             <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
         </ul>
     </nav>
@@ -61,12 +61,14 @@
             <tbody>
                 {% for row in data %}
                 <tr>
-                    <td>{{ loop.index }}</td>
-                    <td><a href="{{ url_for('player_stats', steamid64=row.steamid64) }}">{{ row.name }}</a></td>
-                    <td>{{ row.country }}</td>
-                    <td>{{ row.points }}</td>
-                    <td>{{ row.finishedmaps }}/105</td>
-                    <td>{{ row.wrs }}</td>
+                    {% if loop.index > 3 %}
+                        <td>{{ loop.index }}</td>
+                        <td><a href="{{ url_for('player_stats', steamid64=row.steamid64) }}">{{ row.name }}</a></td>
+                        <td>{{ row.country }}</td>
+                        <td>{{ row.points }}</td>
+                        <td>{{ row.finishedmaps }}/105</td>
+                        <td>{{ row.wrs }}</td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

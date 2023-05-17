@@ -93,3 +93,30 @@ class MapTier(Base):
     stages = Column(Integer)
     bonuses = Column(Integer)
     mapper = Column(String(255))
+
+
+class Wrcps(Base):
+    __tablename__ = 'ck_wrcps'
+
+    mapname = Column(String(54), primary_key=True)
+    tier = Column(Integer)
+    maxvelocity = Column(Float)
+    announcerecord = Column(Integer, nullable=False, default=0)
+    gravityfix = Column(Integer, nullable=False, default=1)
+    ranked = Column(Integer, nullable=False, default=1)
+    stages = Column(Integer)
+    bonuses = Column(Integer)
+    mapper = Column(String(255))
+
+class PrInfo(Base):
+    __tablename__ = 'ck_prinfo'
+
+    steamid = Column(String(32), primary_key=True)
+    name = Column(String(64))
+    mapname = Column(String(32), nullable=False)
+    runtime = Column(DECIMAL(12, 6), nullable=False, default=-1.000000)
+    zonegroup = Column(Integer, nullable=False, default=0)
+    PRtimeinzone = Column(DECIMAL(12, 6), nullable=False, default=0.000000)
+    PRcomplete = Column(Float, nullable=False, default=0)
+    PRattempts = Column(Float, nullable=False, default=0)
+    PRstcomplete = Column(Float, nullable=False, default=0)

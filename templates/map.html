@@ -21,44 +21,46 @@
     <ul>
       <li ><a href="{{ url_for('top') }}">Top</a></li>
       <li><a href="{{ url_for('latest') }}">Latest</a></li>
-      <li class="active"><a href="{{ url_for('players') }}">Players</a></li>
-      <li><a href="{{ url_for('maps') }}">Maps</a></li>
+      <li><a href="{{ url_for('players') }}">Players</a></li>
+      <li class="active"><a href="{{ url_for('maps') }}">Maps</a></li>
   </ul>
   </nav>
-  <h1>Recent Players</h1>
   <div class="total-container">
     <div class="total-box">
-      <h2>Total Players</h2>
-      <p>{{numplayers}}</p>
+      <h2>Tier</h2>
+      <p>{{data2[0].tier}}</p>
     </div>
     <div class="total-box">
-      <h2>Most Points</h2>
-      <p><a href="{{ url_for('player_stats', steamid64=mostpoints.steamid64) }}">{{mostpoints.name}}</a></p>
+      <h1>{{data[0].mapname}}</h1>
     </div>
     <div class="total-box">
-      <h2>Newest Player</h2>
-      <p><a href="{{ url_for('player_stats', steamid64=newestplayer.steamid64) }}">{{newestplayer.name}}</a></p>
+      <h2># of completes</h2>
+      <p>{{recordCount}}</p>
     </div>
   </div>
   <div class="table-wrapper">
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Points</th>
-          <th>Finished Maps</th>
-          <th>Records</th>
+          <th>position</th>
+          <th>name</th>
+          <th>runtime (seconds)</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
+        {% set prev_runtime = 0 %}
         {% for row in data %}
         <tr>
-          <td><a href="{{ url_for('player_stats', steamid64=row.steamid64) }}">{{ row.name }}</a></td>
-          <td>{{ row.country }}</td>
-          <td>{{ row.points }}</td>
-          <td>{{ row.finishedmaps }}/105</td>
-          <td>{{ row.wrs }}</td>
+          <td>{{ loop.index }}</td>
+          <td>{{row.name}}</td>
+          <td>{{row.runtime}}</td>
+          {% if loop.index > 1 %}
+            <td class="negdiff">+{{ row.runtime - data[loop.index - 2].runtime }}</td>
+            {% else %}
+            <td class="posdiff">+0.000000</td>
+            {% endif %}
+          </td>
         </tr>
         {% endfor %}
       </tbody>

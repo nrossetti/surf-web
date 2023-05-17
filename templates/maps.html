@@ -13,7 +13,7 @@
   <nav class="nav">
     <ul>
       <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
-      <li class="active"><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+      <li class="active"><a href="{{ url_for('top') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
       <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
     </ul>
   </nav>
@@ -25,26 +25,33 @@
       <li class="active"><a href="{{ url_for('maps') }}">Maps</a></li>
   </ul>
   </nav>
-  <h1>Player Data</h1>
+  <h1>Map List</h1>
   <div class="total-container">
     <div class="total-box">
       <h2>TOTAL MAPS</h2>
-      <p>120</p>
+      <p>{{totalmaps}}</p>
     </div>
     <div class="total-box">
-      <h2>Most Completes</h2>
-      <p>surf_mesa</p>
+      <h2>Most Player Completes</h2>
+      <p>{{mostcompletes.name}} - <a href="{{url_for('map', mapname=mostcompletes.steamid)}}">{{mostcompletes.steamid}}</a></p>
     </div>
     <div class="total-box">
-      <h2>Least Completes</h2>
-      <p>surf_rainbow</p>
+      <h2>Incomplete Maps</h2>
+      {%if incomplete%}
+      <p>  
+        {% for row in incomplete %}
+          <a href="{{url_for('map', mapname=row.mapname)}}">{{row.mapname}} | </a> 
+        {% endfor %}
+      </p>
+      {% else %}
+        <p>none</p>
+      {% endif %}
     </div>
   </div>
   <div class="table-wrapper">
     <table>
       <thead>
         <tr>
-          <th>#</th>
           <th>mapname</th>
           <th>tier</th>
         </tr>
@@ -52,8 +59,7 @@
       <tbody>
         {% for row in data %}
         <tr>
-          <td>{{ loop.index }}</td>
-          <td>{{ row.mapname }}</td>
+          <td><a href="{{url_for('map', mapname=row.mapname)}}">{{row.mapname}}</a></td>
           <td>{{row.tier}}</td>
         </tr>
         {% endfor %}

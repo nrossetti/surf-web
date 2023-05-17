@@ -13,7 +13,7 @@
     <nav class="nav">
         <ul>
             <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
-            <li class="active"><a href="{{ url_for('players') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
+            <li class="active"><a href="{{ url_for('top') }}"><i class="fas fa-chart-line"></i>STATS</a></li>
             <li><a href="http://join.lasagna.host"><i class="fab fa-discord"></i>DISCORD</a></li>
         </ul>
     </nav>
@@ -29,7 +29,7 @@
     <div class="total-container">
         <div class="latest-box">
           <h2>Latest Record</h2>
-          <p><a href="{{ url_for('player_stats', steamid64=data[0].steamid64) }}">{{ data[0].name }}</a> on <strong>{{ data[0].map }}</strong> in <strong>{{ data[0].runtime }} seconds</strong></p>
+          <p><a href="{{ url_for('players')}}" style="color: white">{{ data[0].name }}</a> on <strong>{{ data[0].map }}</strong> in <strong>{{ data[0].runtime }} seconds</strong></p>
         </div>
       </div>
     <div class="table-wrapper">
@@ -47,7 +47,7 @@
                 <tr>
                     <td><a href="{{ url_for('players')}}">{{ row.name }}</a></td>
                     <td>{{ row.runtime }}</td>
-                    <td>{{ row.map }}</td>
+                    <td><a href="{{url_for('map', mapname=row.map)}}">{{row.map}}</a></td>
                     <td>{{ row.date }}</td>
                 </tr>
                 {% endfor %}
