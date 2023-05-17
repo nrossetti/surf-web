@@ -79,7 +79,7 @@
       <tbody>
         {% for row in data %}
         <tr>
-          <td>{{ row.name }}</td>
+          <td><a href="{{ url_for('player_stats', steamid64=row.steamid64) }}">{{ row.name }}</a></td>
           <td>{{ row.country }}</td>
           <td>{{ row.points }}</td>
           <td>{{ row.finishedmaps }}/105</td>
