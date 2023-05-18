@@ -7,10 +7,10 @@ import os
 #CONFIG = configparser.RawConfigParser()
 #CONFIG.read(CONFIG_PATH)
 
-API_KEY = os.environ.get('HOSTNAME')
-ADDRESS = os.environ.get('USERNAME')
-PORT = os.environ.get('PASSWORD')
-IMG_DIR = os.environ.get('DB')
+DB_HOST = os.environ.get('HOSTNAME')
+DB_USER = os.environ.get('USERNAME')
+DB_PASS = os.environ.get('PASSWORD')
+DB_NAME = os.environ.get('DB')
 
 #DB_HOST = str(CONFIG.get('surfdb', 'HOSTNAME'))
 #DB_USER = str(CONFIG.get('surfdb', 'USERNAME'))
