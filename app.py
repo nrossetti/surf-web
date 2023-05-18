@@ -1,4 +1,4 @@
-from flask import Flask, render_template,session, request, jsonify
+from flask import Flask, render_template,session, request
 from steam import *
 from surfdb import *
 
@@ -68,4 +68,4 @@ def map(mapname):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
