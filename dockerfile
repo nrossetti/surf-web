@@ -7,17 +7,11 @@ WORKDIR /app
 # Install git
 RUN apt-get update && apt-get install -y git
 
-# Clone the GitHub repository
-RUN git clone https://github.com/nrossetti/surf-web .
-
 # Copy the requirements.txt file to the container
 COPY requirements.txt .
 
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Expose the port on which your Flask application is listening
-EXPOSE 5000
 
 # Set the entrypoint command to run the Flask application
 CMD ["python", "app.py"]
