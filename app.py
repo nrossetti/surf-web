@@ -3,21 +3,9 @@ from steam import *
 from surfdb import *
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
 
 @app.route('/')
 def servers():
-# Get the IP address of the visitor
-    ip_address = request.remote_addr
-    
-    # Check if the IP address has been seen before
-    if ip_address not in session:
-        session[ip_address] = True
-        session['count'] = session.get('count', 0) + 1
-        
-    # Return the response
-    print(f'This page has been viewed by {session["count"]} unique visitors.')
-
     server_info = server_update()
     if server_info is None:
         server_info = {'server_name': 'Server Offline', 'map_name': '', 'player_count': '', 'ip_address': '', 'map': ''}

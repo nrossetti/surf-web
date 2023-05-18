@@ -1,21 +1,11 @@
 from sqlalchemy import create_engine, select, func, and_, not_, exists
 from surftimer import *
-#import configparser
 import os
-
-#CONFIG_PATH = 'config.ini'  
-#CONFIG = configparser.RawConfigParser()
-#CONFIG.read(CONFIG_PATH)
 
 DB_HOST = os.environ.get('HOSTNAME')
 DB_USER = os.environ.get('USERNAME')
 DB_PASS = os.environ.get('PASSWORD')
 DB_NAME = os.environ.get('DB')
-
-#DB_HOST = str(CONFIG.get('surfdb', 'HOSTNAME'))
-#DB_USER = str(CONFIG.get('surfdb', 'USERNAME'))
-#DB_PASS = str(CONFIG.get('surfdb', 'PASSWORD'))
-#DB_NAME = str(CONFIG.get('surfdb', 'DB'))
 
 # Create a SQLAlchemy engine
 engine = create_engine(f'mysql+mysqlconnector://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}')
