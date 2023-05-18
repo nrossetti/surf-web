@@ -9,6 +9,7 @@ API_KEY = str(CONFIG.get('steam', 'STEAM_API_KEY'))
 ADDRESS = str(CONFIG.get('steam', 'SERVER_IP'))
 PORT = str(CONFIG.get('steam', 'SERVER_PORT'))
 APP_ID = 730  #csgo
+IMG_DIR = str(CONFIG.get('fastdl', 'IMG_DIR'))
 
 def server_update():
     # Construct the URL to retrieve server information for the specified App ID
@@ -50,3 +51,11 @@ def profile_url(steamid64):
     profile_picture_url = data['avatarfull']
 
     return profile_picture_url
+
+def get_map_pic(mapname, bonus=0):
+    path = IMG_DIR
+    path += mapname
+    if bonus > 0:
+        path+='_b'+str(bonus)
+    
+    return path+'.jpg'

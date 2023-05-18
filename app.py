@@ -21,7 +21,8 @@ def servers():
     server_info = server_update()
     if server_info is None:
         server_info = {'server_name': 'Server Offline', 'map_name': '', 'player_count': '', 'ip_address': '', 'map': ''}
-    return render_template('index.html', server_info=server_info)
+    map_pic = get_map_pic(server_info['map'])
+    return render_template('index.html', server_info=server_info, map_pic=map_pic)
     
 @app.route('/players')
 def players():
@@ -61,8 +62,9 @@ def maps():
 def map(mapname):
     data = get_maprec(mapname) 
     data2 = get_maptier(mapname)
+    map_pic = get_map_pic(mapname)
     # render the player.html template with the player's data and profile picture URL
-    return render_template('map.html', data=data, data2=data2, recordCount=len(data))
+    return render_template('map.html', data=data, data2=data2, recordCount=len(data), map_pic=map_pic)
 
 
 if __name__ == '__main__':

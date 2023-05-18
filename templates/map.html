@@ -4,12 +4,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
-
-<div class="container">
+<body  style="background-image: url('{{map_pic}}')">
+<div class="container" >
   <a href="/">
     <h1 class="title">SURF</h1>
   </a>
-  <h2 class="description">Counter-Strike Surf Community </h2>
+  <h2 class="description">Gaming Community</h2>
   <nav class="nav">
     <ul>
       <li><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
@@ -53,15 +53,15 @@
         {% for row in data %}
         <tr>
           <td>{{ loop.index }}</td>
-          <td>{{row.name}}</td>
+          <td>{{ row.name }}</td>
           <td>{{row.runtime}}</td>
-          {% if loop.index > 1 %}
-            <td class="negdiff">+{{ row.runtime - data[loop.index - 2].runtime }}</td>
-            {% else %}
-            <td class="posdiff">+0.000000</td>
-            {% endif %}
-          </td>
+          {% if loop.index == 1 %}
+            <td class="posdiff">+0:00</td>
+          {% else %}
+            <td class="negdiff">+{{row.runtime - data[0].runtime}}</td>
+          {% endif %}
         </tr>
+        
         {% endfor %}
       </tbody>
     </table>
@@ -72,3 +72,4 @@
   <div class="wave"></div>
   <div class="wave"></div>
 </div>
+</body>

@@ -7,3 +7,5 @@ requests==2.30.0
 # helloflask\surfdb.py: 1
 # helloflask\surftimer.py: 1,2
 SQLAlchemy==2.0.13
+
+mysql

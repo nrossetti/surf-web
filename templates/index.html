@@ -9,7 +9,6 @@
     <a href="/">
         <h1 class="title">SURF</h1>
     </a>
-    <h2 class="description">Counter-Strike Surf Community </h2>
     <nav class="nav">
         <ul>
             <li class="active"><a href="{{ url_for('servers') }}"><i class="fas fa-gamepad"></i>SERVERS</a></li>
@@ -28,8 +27,8 @@
             Game Servers
         </h2>
     </div>
-    <div class="server-info-box">
-        <div class="server-info">
+    <div class="server-info">
+        <div class="server-info-box" style="background-image: url('{{map_pic}}')">
             <div class="status-indicator green"></div>
             <h2>{{server_info.server_name}}</h2>
             <p><strong>Map:</strong> {{ server_info.map_name }} | <strong>Players:</strong> {{ server_info.player_count
@@ -38,10 +37,7 @@
                     server_info.ip_address }}</a><a href="steam://connect/{{ server_info.ip_address }}"
                     class="connect">Join</a></p>
         </div>
-    </div>
-
-    <div class="server-info-box">
-        <div class="server-info">
+        <div class="server-info-box">
             <div class="status-indicator red"></div>
             <h2>Surf MOTD</h2>
             <p><strong>*Coming Soon*</strong></p>
