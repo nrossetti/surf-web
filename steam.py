@@ -1,15 +1,21 @@
-import requests, configparser
+import requests
+#import configparser
+import os
 
+#CONFIG_PATH = 'config.ini'  
+#CONFIG = configparser.RawConfigParser()
+#CONFIG.read(CONFIG_PATH)
 
-CONFIG_PATH = 'config.ini'  
-CONFIG = configparser.RawConfigParser()
-CONFIG.read(CONFIG_PATH)
-
-API_KEY = str(CONFIG.get('steam', 'STEAM_API_KEY'))
-ADDRESS = str(CONFIG.get('steam', 'SERVER_IP'))
-PORT = str(CONFIG.get('steam', 'SERVER_PORT'))
-APP_ID = 730  #csgo
-IMG_DIR = str(CONFIG.get('fastdl', 'IMG_DIR'))
+API_KEY = os.environ.get('STEAM_API_KEY')
+ADDRESS = os.environ.get('SERVER_IP')
+PORT = os.environ.get('SERVER_PORT')
+APP_ID = 730
+IMG_DIR = os.environ.get('IMG_DIR')
+#API_KEY = str(CONFIG.get('steam', 'STEAM_API_KEY'))
+#ADDRESS = str(CONFIG.get('steam', 'SERVER_IP'))
+#PORT = str(CONFIG.get('steam', 'SERVER_PORT'))
+#APP_ID = 730  #csgo
+#IMG_DIR = str(CONFIG.get('fastdl', 'IMG_DIR'))
 
 def server_update():
     # Construct the URL to retrieve server information for the specified App ID
